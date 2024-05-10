@@ -4,7 +4,7 @@ services:
     container_name: mailhog
     restart: always
     ports:
-      - "2525:1025"
+      - "1025:1025"
       - "8025:8025"
     environment:
       - TZ=Europe/Berlin
