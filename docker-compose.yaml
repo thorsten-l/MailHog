@@ -1,0 +1,15 @@
+services:
+  mailhog:
+    image: ghcr.io/thorsten-l/mailhog:latest
+    container_name: mailhog
+    restart: always
+    ports:
+      - "2525:1025"
+      - "8025:8025"
+    environment:
+      - TZ=Europe/Berlin
+    healthcheck:
+      test: curl -k --fail --head http://localhost:8025/ || exit 1
+      interval: 10s
+      timeout: 30s
+      retries: 3
